@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Blogs {% endblock %}</title>
+    
+    {% comment %} global static folder {% endcomment %}
+    <link rel="stylesheet" href="{% static 'app.css' %}">
+    {% block css_files %}{% endblock %}
+</head>
+<body>
+    {% comment %} Since won't need any dynamic data ever {% endcomment %}
+    <header id="main-nav">
+        <h1><a href="{% url 'main_page_url' %}">Nidhi's Blog</a></h1>
+        <nav>
+            <a href="{% url 'posts_url' %}">All Posts</a>
+        </nav>
+    </header>
+    
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
